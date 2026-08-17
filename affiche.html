@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>Affiches - Mb Designer</title>
+</head>
+<style>
+a {
+    text-decoration: none;
+}
+
+/* Grille à défilement horizontal pour les affiches */
+.affiche-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-auto-columns: 220px;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1.25rem;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+}
+
+.affiche-grid::-webkit-scrollbar {
+    height: 10px;
+}
+
+.affiche-grid::-webkit-scrollbar-track {
+    background: #eee;
+    border-radius: 10px;
+}
+
+.affiche-grid::-webkit-scrollbar-thumb {
+    background: #212529;
+    border-radius: 10px;
+}
+
+.affiche-item {
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #000;
+    aspect-ratio: 3 / 4;
+    scroll-snap-align: start;
+}
+
+.affiche-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.affiche-item img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 576px) {
+    .affiche-grid {
+        grid-auto-columns: 160px;
+        grid-template-rows: repeat(1, minmax(0, 1fr));
+    }
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 58px;
+    height: 58px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08);
+}
+
+.whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+</style>
+<body>
+      <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
+        <div class="container-fluid px-4">
+          <a class="navbar-brand" href="index.html">
+            <img src="logo/logo_mb.png" alt="Logo" style="height: 40px;">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Ouvrir le menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto gap-lg-4 text-uppercase">
+              <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#realisations">Mes réalisations</a></li>
+              <li class="nav-item"><a class="nav-link active" href="affiche.html">Affiches</a></li>
+              <li class="nav-item"><a class="nav-link" href="card_de_visite.html">Cartes de visite</a></li>
+              <li class="nav-item"><a class="nav-link" href="video.html">Vidéos</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <main>
+
+        <!-- En-tête de page -->
+        <section class="text-center py-5">
+            <h1 class="display-5 fw-bold">Toutes mes affiches</h1>
+            <p class="lead text-muted">
+                Une sélection de créations pour événements, entreprises et promotions.
+                Faites glisser horizontalement pour voir plus d'affiches →
+            </p>
+        </section>
+
+        <!-- Galerie d'affiches : grille à défilement horizontal -->
+        <section class="container-fluid px-4 pb-5">
+
+            <div class="affiche-grid">
+
+                <!-- Affiche 1 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche1.jpeg" alt="Affiche 1" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche1.jpeg">
+                </div>
+
+                <!-- Affiche 2 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche2.jpeg" alt="Affiche 2" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche2.jpeg">
+                </div>
+
+                <!-- Affiche 3 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche3.jpeg" alt="Affiche 3" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche3.jpeg">
+                </div>
+
+                <!-- Affiche 4 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche4.jpeg" alt="Affiche 4" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche4.jpeg">
+                </div>
+
+                <!-- Affiche 5 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche5.jpeg" alt="Affiche 5" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche5.jpeg">
+                </div>
+
+                <!-- Affiche 6 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche6.jpeg" alt="Affiche 6" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche6.jpeg">
+                </div>
+
+                <!-- Affiche 7 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche7.jpeg" alt="Affiche 7" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche7.jpeg">
+                </div>
+
+                <!-- Affiche 8 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche8.jpeg" alt="Affiche 8" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche8.jpeg">
+                </div>
+
+                <!-- Affiche 9 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche9.jpeg" alt="Affiche 9" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche9.jpeg">
+                </div>
+
+                <!-- Affiche 10 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche10.jpeg" alt="Affiche 10" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche10.jpeg">
+                </div>
+
+                <!-- Affiche 11 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche11.jpeg" alt="Affiche 11" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche11.jpeg">
+                </div>
+
+                <!-- Affiche 12 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche12.jpeg" alt="Affiche 12" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche12.jpeg">
+                </div>
+
+                <!-- Affiche 13 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche13.jpeg" alt="Affiche 13" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche13.jpeg">
+                </div>
+
+                <!-- Affiche 14 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche14.jpeg" alt="Affiche 14" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche14.jpeg">
+                </div>
+
+                <!-- Affiche 15 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche15.jpeg" alt="Affiche 15" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche15.jpeg">
+                </div>
+
+                <!-- Affiche 16 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche16.jpeg" alt="Affiche 16" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche16.jpeg">
+                </div>
+
+                <!-- Affiche 17 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche17.jpeg" alt="Affiche 17" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche17.jpeg">
+                </div>
+
+                <!-- Affiche 18 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche18.jpeg" alt="Affiche 18" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche18.jpeg">
+                </div>
+
+                <!-- Affiche 19 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche19.jpeg" alt="Affiche 19" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche19.jpeg">
+                </div>
+
+                <!-- Affiche 20 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche20.jpeg" alt="Affiche 20" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche20.jpeg">
+                </div>
+
+                <!-- Affiche 21 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche21.jpeg" alt="Affiche 21" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche21.jpeg">
+                </div>
+
+                <!-- Affiche 22 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche22.jpeg" alt="Affiche 22" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche22.jpeg">
+                </div>
+
+                <!-- Affiche 23 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche23.jpeg" alt="Affiche 23" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche23.jpeg">
+                </div>
+
+                <!-- Affiche 24 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche24.jpeg" alt="Affiche 24" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche24.jpeg">
+                </div>
+
+                <!-- Affiche 25 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche25.jpeg" alt="Affiche 25" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche25.jpeg">
+                </div>
+
+                <!-- Affiche 26 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche26.jpeg" alt="Affiche 26" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche26.jpeg">
+                </div>
+
+                <!-- Affiche 27 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche27.jpeg" alt="Affiche 27" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche27.jpeg">
+                </div>
+
+                <!-- Affiche 28 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche28.jpeg" alt="Affiche 28" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche28.jpeg">
+                </div>
+
+                <!-- Affiche 29 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche29.jpeg" alt="Affiche 29" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche29.jpeg">
+                </div>
+
+                <!-- Affiche 30 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche30.jpeg" alt="Affiche 30" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche30.jpeg">
+                </div>
+
+                <!-- Affiche 31 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche31.jpeg" alt="Affiche 31" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche31.jpeg">
+                </div>
+
+                <!-- Affiche 32 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche32.jpeg" alt="Affiche 32" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche32.jpeg">
+                </div>
+
+                <!-- Affiche 33 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche33.jpeg" alt="Affiche 33" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche33.jpeg">
+                </div>
+
+                <!-- Affiche 34 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche34.jpeg" alt="Affiche 34" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche34.jpeg">
+                </div>
+
+                <!-- Affiche 35 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche35.jpeg" alt="Affiche 35" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche35.jpeg">
+                </div>
+
+                <!-- Affiche 36 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche36.jpeg" alt="Affiche 36" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche36.jpeg">
+                </div>
+
+                <!-- Affiche 37 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche37.jpeg" alt="Affiche 37" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche37.jpeg">
+                </div>
+
+                <!-- Affiche 38 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche38.jpeg" alt="Affiche 38" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche38.jpeg">
+                </div>
+
+                <!-- Affiche 39 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche39.jpeg" alt="Affiche 39" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche39.jpeg">
+                </div>
+
+                <!-- Affiche 40 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche40.jpeg" alt="Affiche 40" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche40.jpeg">
+                </div>
+
+                <!-- Affiche 41 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche41.jpeg" alt="Affiche 41" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche41.jpeg">
+                </div>
+
+                <!-- Affiche 42 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche42.jpeg" alt="Affiche 42" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche42.jpeg">
+                </div>
+
+                <!-- Affiche 43 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche43.jpeg" alt="Affiche 43" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche43.jpeg">
+                </div>
+
+                <!-- Affiche 44 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche44.jpeg" alt="Affiche 44" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche44.jpeg">
+                </div>
+
+                <!-- Affiche 45 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche45.jpeg" alt="Affiche 45" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche45.jpeg">
+                </div>
+
+                <!-- Affiche 46 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche46.jpeg" alt="Affiche 46" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche46.jpeg">
+                </div>
+
+                <!-- Affiche 47 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche47.jpeg" alt="Affiche 47" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche47.jpeg">
+                </div>
+
+                <!-- Affiche 48 -->
+                <div class="affiche-item">
+                    <img src="IMAGES/affiche48.jpeg" alt="Affiche 48" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/affiche48.jpeg">
+                </div>
+
+                <!--
+                    Pour ajouter une nouvelle affiche, copiez-collez ce bloc ici
+                    et changez uniquement le chemin de l'image (src ET data-img) :
+
+                    <div class="affiche-item">
+                        <img src="IMAGES/votre-fichier.jpeg" alt="Affiche X" data-bs-toggle="modal" data-bs-target="#afficheModal" data-img="IMAGES/votre-fichier.jpeg">
+                    </div>
+                -->
+
+            </div>
+
+        </section>
+
+        <!-- Retour -->
+        <section class="text-center pb-5">
+            <a href="index.html" class="btn btn-dark">← Retour à l'accueil</a>
+        </section>
+
+      </main>
+
+      <!-- Modal pour agrandir l'affiche cliquée -->
+      <div class="modal fade" id="afficheModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-dark border-0">
+            <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Fermer" style="z-index: 1;"></button>
+            <img id="afficheModalImg" src="" alt="Affiche agrandie" class="w-100" style="object-fit: contain; max-height: 85vh;">
+          </div>
+        </div>
+      </div>
+
+     <footer class="bg-black text-white py-5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+            <img src="logo/logo_mb.png" alt="Logo" class="img-fluid mb-3" style="max-width: 180px;">
+
+                <p>
+                    Création graphique, identité visuelle et design digital.
+                </p>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Navigation</h5>
+                <a href="index.html" class="text-white d-block">Accueil</a>
+                <a href="index.html#realisations" class="text-white d-block">Réalisations</a>
+                <a href="affiche.html" class="text-white d-block">Affiches</a>
+                <a href="card_de_visite.html" class="text-white d-block">Cartes de visite</a>
+                <a href="video.html" class="text-white d-block">Vidéos</a>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <p>Email : contact@monsite.com</p>
+                <p>Téléphone : +221 77_ 850_34 18</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center mb-0">
+            © 2026 Mb Designer — Tous droits réservés
+        </p>
+    </div>
+</footer>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+      <script>
+        // Affiche l'image cliquée en grand dans le modal
+        document.querySelectorAll('.affiche-item img').forEach(function (img) {
+            img.addEventListener('click', function () {
+                document.getElementById('afficheModalImg').src = this.getAttribute('data-img');
+            });
+        });
+      </script>
+
+      <!-- Bouton flottant WhatsApp -->
+      <a href="https://wa.me/221778503418" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactez-moi sur WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2Zm0 1.67a8.2 8.2 0 0 1 5.83 2.41 8.19 8.19 0 0 1 2.42 5.83c0 4.55-3.7 8.25-8.25 8.25a8.24 8.24 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.24-8.25Zm-4.55 4.5c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.56.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.34-.76-1.83-.2-.48-.4-.42-.55-.42h-.47Z"/></svg>
+      </a>
+
+</body>
+</html>
